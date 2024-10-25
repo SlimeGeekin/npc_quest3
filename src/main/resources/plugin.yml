@@ -1,0 +1,4 @@
+name: npc_quest3
+version: '1.0-SNAPSHOT'
+main: me.eclipsorz.npc_quest3
+api-version: '1.21'
