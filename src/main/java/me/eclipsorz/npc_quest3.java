@@ -1,5 +1,6 @@
 package me.eclipsorz;
 
+import me.eclipsorz.commands.QuestListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -17,14 +18,18 @@ public class npc_quest3 extends JavaPlugin implements Listener, CommandExecutor 
     @Override
     public void onEnable() {
         this.getCommand("npc").setExecutor(this);
-        Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(new QuestListener(), this);
     }
+
+
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             Location location = player.getLocation();
+
 
             // Spawn villager
             Villager villager = (Villager) location.getWorld().spawnEntity(location, EntityType.VILLAGER);
